@@ -9,12 +9,12 @@
   </head>
   <body>
     <h1>Acceleration Audio</h1>
-   
+
     <i data-lucide="x"></i>
     <i data-lucide="menu"></i>
 
     <button id="playButton">
-      <i data-lucide="play" class="w-50 h-60"></i>
+      <i data-lucide="play" class="w-50 h-50"></i>
     </button>
 
     <a href="">
@@ -22,18 +22,30 @@
     </a>
 
     <a href="">
-      <i data-lucide="play" class="text-amber-600 fill-transparent" ></i>
+      <i data-lucide="play" class="text-amber-600 fill-transparent"></i>
     </a>
 
     <!-- <div class="icon-play"></div> -->
-    <button id="pauseButton1">
-      <i data-lucide="pause" class="text-transparent fill-amber-600"> </i>
+    <button id="pauseButton">
+      <i data-lucide="pause" class="text-transparent fill-amber-600 w-50 h-60">
+      </i>
     </button>
 
-     <button id="pauseButton2">
+    <button id="pauseButton2">
       <i data-lucide="pause" class="text-amber-600 fill-transparent"> </i>
     </button>
 
+    <p>
+      <progress id="progress" value="0" max="1" style="width:100%"></progress>
+
+      <div id="custom-progress" class="w-full h-8 bg-amber-100 trasition-all">
+        <div id="custom-progress-bar" class="w-0 h-8 bg-amber-500 z-10"></div>
+      </div>
+    </p>
+
+    <audio src="" id="audioPlayer" controls></audio>
+
+    <script src="main.js"></script>
 
     <script src="https://unpkg.com/lucide@latest"></script>
     <script>
