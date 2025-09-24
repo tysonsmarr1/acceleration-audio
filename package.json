@@ -1,0 +1,17 @@
+{
+  "name": "acceleration-audio",
+  "version": "1.0.0",
+  "description": "the leading accelerating audio app in the world.",
+  "author": "Kenan Casey",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "npx @tailwindcss/cli -i input.css -o output.css --watch",
+    "insult": "echo \"Your mama\""
+  },
+  "dependencies": {
+    "@tailwindcss/cli": "^4.1.13",
+    "lucide": "^0.544.0",
+    "tailwindcss": "^4.1.13"
+  }
+}
