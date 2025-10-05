@@ -7,46 +7,74 @@
 
     <link rel="stylesheet" href="output.css" />
   </head>
-  <body>
-    <h1>Acceleration Audio</h1>
 
-    <i data-lucide="x"></i>
-    <i data-lucide="menu"></i>
+  <body class="bg-amber-50 flex items-center justify-center min-h-screen">
+    <main
+      class="flex flex-col items-center text-center bg-white shadow-xl rounded-3xl p-10 space-y-6 w-[400px]"
+    >
+      <h1 class="text-3xl font-bold text-amber-600">Acceleration Audio</h1>
 
-    <button id="playButton">
-      <i data-lucide="play" class="w-50 h-50"></i>
-    </button>
-
-    <a href="">
-      <i data-lucide="play" class="text-transparent fill-amber-600"></i>
-    </a>
-
-    <a href="">
-      <i data-lucide="play" class="text-amber-600 fill-transparent"></i>
-    </a>
-
-    <!-- <div class="icon-play"></div> -->
-    <button id="pauseButton">
-      <i data-lucide="pause" class="text-transparent fill-amber-600 w-50 h-60">
-      </i>
-    </button>
-
-    <button id="pauseButton2">
-      <i data-lucide="pause" class="text-amber-600 fill-transparent"> </i>
-    </button>
-
-    <p>
-      <progress id="progress" value="0" max="1" style="width:100%"></progress>
-
-      <div id="custom-progress" class="w-full h-8 bg-amber-100 trasition-all">
-        <div id="custom-progress-bar" class="w-0 h-8 bg-amber-500 z-10"></div>
+      <!-- Album Art -->
+      <div class="w-64 h-64 rounded-2xl overflow-hidden shadow-md">
+        <img
+          id="albumArt"
+          src="https://via.placeholder.com/300x300.png?text=Album+Art"
+          alt="Album Art"
+          class="object-cover w-full h-full"
+        />
       </div>
-    </p>
 
-    <audio src="" id="audioPlayer" controls></audio>
+      <!-- Controls -->
+      <div class="flex justify-center items-center space-x-6">
+        <button
+          id="prevButton"
+          class="p-4 bg-amber-500 rounded-full hover:bg-amber-600 transition-all"
+        >
+          <i data-lucide="skip-back" class="text-white w-6 h-6"></i>
+        </button>
+
+        <button
+          id="playButton"
+          class="p-4 bg-amber-500 rounded-full hover:bg-amber-600 transition-all"
+        >
+          <i data-lucide="play" class="text-white w-6 h-6"></i>
+        </button>
+
+        <button
+          id="pauseButton"
+          class="p-4 bg-amber-500 rounded-full hover:bg-amber-600 transition-all hidden"
+        >
+          <i data-lucide="pause" class="text-white w-6 h-6"></i>
+        </button>
+
+        <button
+          id="nextButton"
+          class="p-4 bg-amber-500 rounded-full hover:bg-amber-600 transition-all"
+        >
+          <i data-lucide="skip-forward" class="text-white w-6 h-6"></i>
+        </button>
+      </div>
+
+      <!-- Progress Bar -->
+      <div
+        id="custom-progress"
+        class="w-full h-3 bg-amber-100 rounded-full overflow-hidden"
+      >
+        <div
+          id="custom-progress-bar"
+          class="h-3 w-0 bg-amber-500 transition-all"
+        ></div>
+      </div>
+
+      <!-- Playback Speed -->
+      <p class="text-amber-600 font-semibold">
+        Playback Speed: <span id="rateDisplay">1.00x</span>
+      </p>
+
+      <audio id="audioPlayer"></audio>
+    </main>
 
     <script src="main.js"></script>
-
     <script src="https://unpkg.com/lucide@latest"></script>
     <script>
       lucide.createIcons();
