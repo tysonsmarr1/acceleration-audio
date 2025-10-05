@@ -8,11 +8,9 @@ const customProgressBar = document.getElementById("custom-progress-bar");
 const rateDisplay = document.getElementById("rateDisplay");
 const albumArt = document.getElementById("albumArt");
 
-// Folder paths
 const songsURL = "./songs/";
 const artURL = "./albumArt/";
 
-// Static playlist
 const songs = [
   { file: "Aidan.mp3", albumArt: "Aidan.jpg" },
   { file: "autumn_sun.mp3", albumArt: "BestPart.jpg" },
@@ -21,7 +19,6 @@ const songs = [
 let currentTrack = 0;
 let playbackInterval = null;
 
-// Load song and album art
 function loadTrack(index) {
   const song = songs[index];
   audioPlayer.src = `${songsURL}${song.file}`;
@@ -30,7 +27,6 @@ function loadTrack(index) {
   rateDisplay.textContent = "1.00x";
 }
 
-// Play with accelerating speed
 function playTrack() {
   if (!audioPlayer.src) loadTrack(currentTrack);
   audioPlayer.play();
@@ -46,7 +42,6 @@ function playTrack() {
   }, 1000);
 }
 
-// Pause playback
 function pauseTrack() {
   audioPlayer.pause();
   playButton.classList.remove("hidden");
@@ -54,7 +49,6 @@ function pauseTrack() {
   clearInterval(playbackInterval);
 }
 
-// Next / Previous Track
 function nextTrack() {
   currentTrack = (currentTrack + 1) % songs.length;
   loadTrack(currentTrack);
@@ -67,7 +61,6 @@ function prevTrack() {
   playTrack();
 }
 
-// Update progress bar
 audioPlayer.addEventListener("timeupdate", () => {
   if (audioPlayer.duration) {
     const progress = (audioPlayer.currentTime / audioPlayer.duration) * 100;
@@ -75,16 +68,13 @@ audioPlayer.addEventListener("timeupdate", () => {
   }
 });
 
-// Auto-next
 audioPlayer.addEventListener("ended", nextTrack);
 
-// Button Events
 playButton.addEventListener("click", playTrack);
 pauseButton.addEventListener("click", pauseTrack);
 nextButton.addEventListener("click", nextTrack);
 prevButton.addEventListener("click", prevTrack);
 
-// Keyboard Controls
 document.addEventListener("keydown", (event) => {
   switch (event.key) {
     case " ":
@@ -107,7 +97,6 @@ document.addEventListener("keydown", (event) => {
   }
 });
 
-// Fallback for missing images
 albumArt.onerror = () => {
   albumArt.src = "https://via.placeholder.com/300x300.png?text=Album+Art";
 };
